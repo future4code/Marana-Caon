@@ -1,0 +1,35 @@
+*{
+    background-color: #ededed;
+    margin: 0em;
+    text-align: center;
+}
+
+.header{border-style: solid;
+
+}
+
+.menu{ 
+    border-style: solid;
+}
+
+a{
+    color:black;
+    display: inline;
+}
+
+a:hover{
+    color: #707a3e;   
+}
+
+.conteudo{border-style: solid;
+
+}
+
+.footer{border-style: solid;
+
+}
+
+p{
+    display: inline;
+    text-align: center;
+}
