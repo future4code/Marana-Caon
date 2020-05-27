@@ -48,6 +48,14 @@ div>p:first-child {
     background-color: #c44f00;
 }
 
+.botao-amarelo2:hover {
+    background-color: #c44f00;
+}
+
+.botao-amarelo2:action {
+    background-color: white
+}
+
 .container {
     height: 500px;
     text-align: center;
