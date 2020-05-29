@@ -1,0 +1,37 @@
+*{
+    text-align: center;
+}
+
+
+.header{
+    background-color: blue;
+}
+
+.menu{
+    background-color: blueviolet;
+}
+
+.content-1{
+    background-color: brown;
+}
+
+.content-2{
+    background-color: coral;
+}
+
+.content-3{
+    background-color: white;
+}
+
+.image{
+    background-color: yellow;
+}
+
+.extra{
+    background-color: tomato;
+}
+
+.footer{
+    background-color: turquoise;
+}
+
