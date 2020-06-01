@@ -1,0 +1,42 @@
+*{ 
+    margin: 0;
+    width: 100%;
+}
+
+header {
+    background-color: orange;
+    height: 10vh;
+    font-size: 20px;
+    display: grid;
+    align-items: center;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr; 
+    
+}
+
+input {
+    width: 200px;
+    display: grid;
+    justify-self: flex-end;
+    height: 30px;
+
+}
+
+
+video {
+    height: 30vw;
+    padding-top: 2vw;
+}
+
+footer {
+    color:white;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    height: 5vw;
+    display: grid;
+    align-items: center;
+    font-size: 2vw;
+    
+}
