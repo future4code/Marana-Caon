@@ -25,14 +25,16 @@ if(confirm("Quer iniciar uma nova rodada?")) {
    pontuacaoComputador = carta3.valor + carta4.valor
 	console.log(`Usuário - cartas: ${carta1.texto} ${carta2.texto} - pontuação: ${pontuacaoUsuario}`)
    console.log(`Computador - cartas: ${carta3.texto} ${carta4.texto} - pontuação: ${pontuacaoComputador}`)
-} if (pontuacaoUsuario === pontuacaoComputador) {
+} else {
+	console.log("O jogo acabou!")
+}
+
+if (pontuacaoUsuario === pontuacaoComputador) {
    console.log("Empate!")
 } else if (pontuacaoUsuario < pontuacaoComputador) {
    console.log("O computador ganhou!")
 }  else if (pontuacaoUsuario > pontuacaoComputador) {
    console.log("O usuário ganhou!")
-} else {
-	console.log("O jogo acabou!")
 }
 
 
