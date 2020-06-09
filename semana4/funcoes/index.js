@@ -87,7 +87,7 @@
 //     let resultadoB = 1;
 //     let arrayFinal = [];
   
-//     for (let X of array) {
+//     for (let x of array) {
 //       resultadoA += x;
 //       resultadoB *= x;
 //     }
@@ -97,24 +97,43 @@
 //     return arrayFinal;
 //   }
 
-// let array = [3, 4]
-// let arrayFinal
-// console.log(arrayFinal)
+// let array = [3, 4, 2]
+// console.log(metodo(array)) // [9, 24]
 
 // RESPOSTA:
-
+// A função está pegando os valores inseridos no array e somando com o resultadoA e multiplicando com resultadoB,
+// cada novo resultado substitui os valores anteriores, até o último número disponível no array, nesse caso o dois.
+// Trocaria o nome para function acumulativa(array).
 
 // EXERCÍCIO 4
+// a)
+// function calcularIdadeCachorro(idadeHumano) {
+//   let idadeCachorro = idadeHumano * 7;
+  
+//   return idadeCachorro
+// }
 
-let humano = 1;
-let cachorro = humano * 7;
+// console.log(calcularIdadeCachorro(4))
 
-function idadeCachorro() {
-  humano = 4;
-  return cachorro
+// b) 
+
+let estudante = confirm("Você é estudante?")
+let nome = "Pati";
+let idade = 28;
+let endereco = "Florianópolis";
+
+function informacoesPessoais() {
+    if (estudante === true) {
+      return ('Eu sou ' + nome + ', tenho ' + idade + ' anos, moro em ' + endereco + ' e sou estudante')
+   } else {
+    return ('Eu sou ' + nome + ', tenho ' + idade + ' anos, moro em ' + endereco + ' e não sou estudante')
+   } 
 }
 
-idadeCachorro();
+console.log(informacoesPessoais())
+
+
+
 
 
 
