@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crafty+Girls&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <input type="text" value="" id="tarefa" placeholder="Tarefa">
+        <select name="dias-da-semana" id="dias-da-semana">
+            <option value="segunda">Segunda-feira</option>
+            <option value="terca">Terça-feira</option>
+            <option value="quarta">Quarta-feira</option>
+            <option value="quinta">Quinta-feira</option>
+            <option value="sexta">Sexta-feira</option>
+            <option value="sábado">Sábado</option>
+            <option value="domingo">Domingo</option>
+        </select>
+        <button id="adicionarTarefa" onclick="adicionarTarefa()">Criar tarefa!</button>
+    </header>
+       <article>
+        <section id="planejamento-semanal">
+            <img src="florzinhas-2.png" alt="florzinhas">
+            <h1>Planejamento semanal</h1>
+            <img src="florzinhas.png" alt="florzinhas">
+        </section>
+                    <table>
+                    <tr>
+                        <th>Segunda</th>
+                        <th>Terça</th>
+                        <th>Quarta</th>
+                        <th>Quinta</th>
+                        <th>Sexta</th>
+                        <th>Sábado</th>
+                        <th>Domingo</th>
+                    </tr> 
+                    <tr>
+                        <td><ul onclick="riscarTarefaSegunda()" id="segunda"></ul></td>
+                        <td><ul onclick="riscarTarefaTerca()" id="terca"></ul></td>
+                        <td><ul onclick="riscarTarefa()" id="quarta"></ul></td>
+                        <td><ul onclick="riscarTarefa()" id="quinta"></ul></td>
+                        <td><ul onclick="riscarTarefa()" id="sexta"></ul></td>
+                        <td><ul onclick="riscarTarefa()" id="sábado"></ul></td>
+                        <td><ul onclick="riscarTarefa()" id="domingo"></ul></td>
+                        </tr>            
+                    </table>
+        </article>  
+    </div>
+</body>
+</html>

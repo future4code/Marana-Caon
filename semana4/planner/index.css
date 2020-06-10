@@ -1,0 +1,72 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Crafty Girls', cursive;
+  
+}
+
+header {
+    display: flex;
+    align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    height: 50px;
+    background-color: #e0b0ff;
+    
+}
+
+input {
+    margin: 0 10px;
+}
+
+select {
+    margin: 0 10px;
+}
+
+button {
+    margin: 0 10px;
+}
+
+h1 {
+    text-align: center;
+    margin: 15px 0px;
+}
+
+#planejamento-semanal {
+    display: flex;
+    align-items: center;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+img {
+    width: 30%;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    background-color: honeydew;
+}
+
+th{
+    border: 1px solid black;
+    text-align: center;
+    background-color: #e0b0ff;
+}
+
+td{
+    border: 1px solid black;
+    height: 300px;
+    text-align: center;
+}
+
+ul {
+    list-style-position: inside;
+    list-style-type: circle;
+}
+
