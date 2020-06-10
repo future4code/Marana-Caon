@@ -12,4 +12,11 @@ function adicionarTarefa() {
     listaDeTarefas.innerHTML += `<li> ${item} </li>`
     meuInput.value = ""
     console.log(listaDeTarefas)
+
 }
+
+function riscarTarefa() {
+    document.getElementById("segunda").style.textDecoration = "line-through";
+  }
+
+ 
