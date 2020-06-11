@@ -1,10 +1,4 @@
 
-function rastreiaTecla(e) {
-    if (e.key === "Enter") {
-        meusInputs()
-    }
-}
-
 function meusInputs() {
     let tituloDoPost = document.getElementById("titulo-post")
     let autorDoPost = document.getElementById("autor-post")
@@ -16,17 +10,22 @@ function meusInputs() {
         conteudo: conteudoDoPost.value
     }
 
+    let arrayDoPost = []
 
-let arrayDoPost = []
+    arrayDoPost.push(publicacao)
+    console.log(arrayDoPost)
 
-arrayDoPost.push(publicacao)
-console.log(arrayDoPost)
+    let postagem = document.getElementById("publicacao")
+    postagem.innerHTML += ` ${publicacao.titulo} ${publicacao.autor} ${publicacao.conteudo}`
 
-let postagem = document.getElementById("publicacao")
-postagem.innerHTML += ` ${publicacao.titulo} ${publicacao.autor} ${publicacao.conteudo}`
+    tituloDoPost.value = ""
+    autorDoPost.value = ""
+    conteudoDoPost.value = ""
 
-tituloDoPost.value = ""
-autorDoPost.value = ""
-conteudoDoPost.value = ""
+}
 
+function rastreiaTecla() {
+    if (e.key === "Enter") {
+        meusInputs()
+    }
 }
