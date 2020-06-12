@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="index.js"></script>
+    <link href="index.css" type="text/css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <section id="contolador-de-despesas">
+      <h1>Controlador de despesas</h1>
+      <h2>Cadastrar despesa</h2>
+
+      <label for="valor-despesa">Valor:</label>
+      <input type="number" id="valor-despesa">
+      
+      <label for="tipo-despesa">Tipo:</label>
+      <select name="tipo-despesa" id="tipo-despesa">
+        <option value="contas">Contas</option>
+        <option value="gato">Gato</option>
+        <option value="plantas">Plantas</option>
+        <option value="diversao">Diversão</option>
+        <option value="comida">Comida</option>
+      </select>
+      
+      <label for="descricao">Descrição:</label>
+      <input type="text" id="descricao">
+      <button id="cadastrar-despesa" onclick="cadastrarDespesa()">Cadastrar despesa</button>
+    </section>
+
+    <section id="despesas-detalhadas">
+      <h1>Despesas detalhadas</h1>
+
+      <label for="tipo-despesa">Tipo:</label>
+      <select name="tipo-despesa" id="tipo-despesa">
+        <option value="contas">Contas:</option>
+        <option value="gato">Gato:</option>
+        <option value="plantas">Plantas:</option>
+        <option value="diversao">Diversão:</option>
+        <option value="comida">Comida:</option>
+      </select>
+
+      <label for="valor-minimo">Valor mínimo:</label>
+      <input type="number" id="valor-minimo">
+
+      <label for="valor-maximo">Valor máximo:</label>
+      <input type="number" id="valor-maximo">
+      
+      <button id="filtrar-despesa" onclick="filtrarDespesa()">Filtrar:</button>
+      <button id="limpar-filtros" onclick="limparFiltros()">Limpar filtros:</button>
+
+    </section>
+
+    <section id="extrato">
+      <h1>Extrato</h1>
+      <h2>Valor total:</h2>
+    </section>
+
+  </body>
+</html>
+
+
