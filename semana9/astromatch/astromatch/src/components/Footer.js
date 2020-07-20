@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import styled from "styled-components";
 
 const ButtonMatch = styled.button `
@@ -34,7 +33,7 @@ const PassButton = styled.button `
     transition: all 0.2s ease 0s;
     overflow: hidden;
 `
-const HeaderContainer = styled.div `
+const FooterContainer = styled.div `
     display: flex;
     justify-content: space-evenly;
     -webkit-box-align: center;
@@ -43,9 +42,11 @@ const HeaderContainer = styled.div `
 `
 export default function Footer (props) {
     return (
-        <HeaderContainer>
+        <FooterContainer>
+            {props.handleMatchClick}
+            {props.handleUnMatchClick}
             <PassButton onClick={props.handleUnMatchClick}>X</PassButton>
             <ButtonMatch onClick={props.handleMatchClick}>♥️</ButtonMatch>
-        </HeaderContainer>
+        </FooterContainer>
     )
 }
