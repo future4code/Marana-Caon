@@ -1,18 +1,14 @@
 import React from 'react';
 import { useHistory } from "react-router";
+import Header from "./Header"
 
 const ApplicationFormPage = () => {
     const history = useHistory();
 
-    const goToHomePage = () => {
-        history.replace("/");
-      };
-
-
 return (
     <div>
+      <Header />  
       <p>Formulário de inscrição</p>
-      <button onClick={goToHomePage}>Home</button>
     </div>
   );
 }
