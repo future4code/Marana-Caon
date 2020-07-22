@@ -4,6 +4,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import HomePage from "./HomePage";
 import ApplicationFormPage from "./ApplicationFormPage";
 import LoginPage from "./LoginPage";
+import AdminPage from "./AdminPage";
 import CreateTripPage from "./CreateTripPage";
 import ListTripsPage from "./ListTripsPage";
 import TripDetailsPage from "./TripDetailsPage";
@@ -21,10 +22,13 @@ const Router = () => {
           <Route exact path="/login">
             <LoginPage />
           </Route>
+          <Route exact path="/admin">
+            <AdminPage />
+          </Route>
           <Route exact path="/viagens/criar">
             <CreateTripPage />
           </Route>
-          <Route exact path="viagens/lista">
+          <Route exact path="/viagens/lista">
             <ListTripsPage />
           </Route>
           <Route exact path="/viagens/detalhes">

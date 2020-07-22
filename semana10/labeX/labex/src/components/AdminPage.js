@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useHistory } from "react-router";
+import { useHistory } from "react-router";
 import Header from "./Header"
 import styled from "styled-components"
 
@@ -17,7 +17,6 @@ const BodyContainer = styled.div`
     justify-content: center;
     text-align: center;
 `
-
 const Button = styled.button `
     display: flex;
     width: 100px;
@@ -26,11 +25,19 @@ const Button = styled.button `
     padding: 10px;
 `
 
-const TripDetailsPage = () => {
+const AdminPage = () => {
     const history = useHistory();
 
-    const goToAdminPage = () => {
-      history.replace("/admin");
+    const goToCreateTripPage = () => {
+      history.push("/viagens/criar");
+    };
+
+    const goToListTripsPage = () => {
+      history.push("/viagens/lista");
+    };
+
+    const goToTripDetailsPage = () => {
+      history.push("/viagens/detalhes");
     };
 
 
@@ -38,11 +45,13 @@ return (
     <PageContainer>
       <Header />
       <BodyContainer>
-      <h1>Detalhes das viagens</h1>
-      <Button onClick={goToAdminPage}>Voltar</Button>
+      <h1>Admin</h1>
+      <Button onClick={goToCreateTripPage}>Criar viagem</Button>
+      <Button onClick={goToListTripsPage}>Viagens</Button>
+      <Button onClick={goToTripDetailsPage}>Detalhes</Button>
       </BodyContainer>
     </PageContainer>
   );
 }
 
-export default TripDetailsPage;
+export default AdminPage;

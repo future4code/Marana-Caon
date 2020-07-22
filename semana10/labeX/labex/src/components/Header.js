@@ -4,16 +4,17 @@ import styled from "styled-components"
 import HomeIcon from "../imagens/home.png"
 import LoginIcon from "../imagens/login.png"
 
-
 const HeaderContainer = styled.div `
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 7vh;
+    height: 56px;
     background-color: #C016A8;
     padding: 0px 15px;
     width: 98%;
     position: absolute;
+    box-shadow: 0 0 3px 0 black;
 `
 const ButtonHome = styled.button`
     padding: 0;
@@ -44,7 +45,8 @@ const IconLogin = styled.img`
 `
 
 const LabeX = styled.p`
-    font-size: 25px;
+    font-size: 28px;
+    color: #282c34;
 `
 
 const Header = () => {

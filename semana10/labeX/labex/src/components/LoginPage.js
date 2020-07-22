@@ -1,36 +1,48 @@
 import React from 'react';
-import { useParams, useHistory } from "react-router";
+import { useHistory } from "react-router";
 import Header from "./Header"
+import styled from "styled-components"
+
+const PageContainer = styled.div`
+    display: flex;
+    height: 100vh;
+    width: 100%;
+`
+
+const BodyContainer = styled.div`
+    display: flex;
+    height: 80vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+`
+const Button = styled.button `
+    display: flex;
+    width: 100px;
+    align-self: center;
+    justify-content: center;
+    padding: 10px;
+`
 
 const LoginPage = () => {
     const history = useHistory();
 
-    const goToHomePage = () => {
-        history.replace("/");
-      };
-
-    const goToCreateTripPage = () => {
-      history.push("/viagens/criar");
-    };
-
-    const goToListTripsPage = () => {
-      history.push("/viagens/lista");
-    };
-
-    const goToTripDetailsPage = () => {
-      history.push("/viagens/detalhes");
+    const goToAdminPage = () => {
+      history.push("/admin");
     };
 
 
 return (
-    <div>
+    <PageContainer>
       <Header />
-      <p>Login</p>
-      <button onClick={goToHomePage}>Home</button>
-      <button onClick={goToCreateTripPage}>Criar viagem</button>
-      <button onClick={goToListTripsPage}>Viagens</button>
-      <button onClick={goToTripDetailsPage}>Detalhes</button>
-    </div>
+      <BodyContainer>
+      <h1>Login</h1>
+      <input placeholder="email" />
+      <input placeholder="senha" />
+      <Button onClick={goToAdminPage}>Login</Button>
+      </BodyContainer>
+    </PageContainer>
   );
 }
 

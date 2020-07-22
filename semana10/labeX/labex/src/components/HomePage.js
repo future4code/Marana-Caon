@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from "react-router";
 import Header from "./Header"
-import Button from '@material-ui/core/Button';
 import styled from "styled-components"
 
 const WelcomeText = styled.p`
@@ -19,6 +18,14 @@ const BodyContainer = styled.div`
     width: 100%;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+`
+const ButtonApplication = styled.button `
+    display: flex;
+    width: 100px;
+    align-self: center;
+    justify-content: center;
+    padding: 10px;
 `
 
 const HomePage = () => {
@@ -34,9 +41,9 @@ return (
         <BodyContainer>
             <WelcomeText>Bem-vindo(a) ao programa de viagens espaciais LabeX!</WelcomeText>
             {/* <button onClick={goToApplicationFormPage}>Inscrição</button> */}
-            <Button onClick={goToApplicationFormPage} variant="contained">
+            <ButtonApplication onClick={goToApplicationFormPage}>
                 Inscrição
-            </Button>
+            </ButtonApplication>
         </BodyContainer>
     </HomeContainer>
   );
