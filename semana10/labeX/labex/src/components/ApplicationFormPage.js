@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from "react-router";
 import Header from "./Header";
 import styled from "styled-components";
 
@@ -19,7 +18,7 @@ const BodyContainer = styled.div`
 `
 
 const ApplicationFormPage = () => {
-    const history = useHistory();
+  
 
 return (
     <PageContainer>

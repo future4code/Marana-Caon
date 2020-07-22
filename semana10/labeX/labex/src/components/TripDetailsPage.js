@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useHistory } from "react-router";
+import { useHistory } from "react-router";
 import Header from "./Header"
 import styled from "styled-components"
 
