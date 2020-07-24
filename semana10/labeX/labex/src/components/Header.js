@@ -20,6 +20,7 @@ const ButtonHome = styled.button`
     padding: 0;
     border: none;
     background: none;
+    cursor: pointer;
 
     :focus { 
         outline: none; 
@@ -27,13 +28,16 @@ const ButtonHome = styled.button`
 `
 
 const IconHome = styled.img`
+    display: flex;
     height: 40px;
+
 `
 
 const ButtonLogin = styled.button`
     padding: 0;
     border: none;
     background: none;
+    cursor: pointer;
 
     :focus { 
         outline: none; 
@@ -51,6 +55,7 @@ const LabeX = styled.p`
 
 const Header = () => {
     const history = useHistory();
+    const token = window.localStorage.getItem("token")
 
     const goToLoginPage = () => {
         history.push("/login");
@@ -60,15 +65,22 @@ const Header = () => {
         history.push("/");
   };
 
+    const handleLogout = () => {
+        window.localStorage.removeItem("token")
+        goToHomePage()
+    }
+
+    const isLogged = token === null ? 
+    <ButtonLogin onClick={goToLoginPage}><IconLogin src={LoginIcon} /></ButtonLogin> : 
+    <ButtonLogin onClick={handleLogout}><IconLogin src={LoginIcon} /></ButtonLogin>
+
 return (
     <HeaderContainer>
-      <ButtonHome onClick={goToHomePage}>
-          <IconHome src={HomeIcon} />
-      </ButtonHome>
-      <LabeX><strong>LabeX</strong></LabeX>
-      <ButtonLogin onClick={goToLoginPage}>
-          <IconLogin src={LoginIcon} />
-      </ButtonLogin>
+       <ButtonHome onClick={goToHomePage}>
+           <IconHome src={HomeIcon} />
+       </ButtonHome>
+       <LabeX><strong>LabeX</strong></LabeX>
+       {isLogged}
     </HeaderContainer>
   );
 }

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from "react-router";
 import Header from "./Header"
 import styled from "styled-components"
+import axios from "axios";
 
 const PageContainer = styled.div`
     display: flex;
@@ -33,6 +34,36 @@ const TripDetailsPage = () => {
       history.replace("/admin");
     };
 
+    const baseUrl =
+    "https://us-central1-labenu-apis.cloudfunctions.net/labeX/marana-caon";
+  
+  
+    useEffect(() => {
+      const token = window.localStorage.getItem("token");
+  
+      if (token === null) {
+        history.push("/");
+      } else {
+        getTripDetail();
+      }
+    }, [history]);
+  
+    const getTripDetail = () => {
+      const token = window.localStorage.getItem("token");
+  
+      axios
+        .get(`${baseUrl}/trip/:id`, {
+          headers: {
+            auth: token
+          }
+        })
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(err => {
+          console.log(err.message);
+        });
+    };
 
 return (
     <PageContainer>

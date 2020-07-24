@@ -6,7 +6,7 @@ import styled from "styled-components"
 const WelcomeText = styled.p`
     color: white;
 `
-const HomeContainer = styled.div`
+const PageContainer = styled.div`
     display: flex;
     height: 100vh;
     width: 100%;
@@ -20,12 +20,22 @@ const BodyContainer = styled.div`
     justify-content: center;
     text-align: center;
 `
-const ButtonApplication = styled.button `
+const Button = styled.button `
     display: flex;
     width: 100px;
     align-self: center;
     justify-content: center;
     padding: 10px;
+    border-radius: 15px;
+    border: none;
+
+    :hover {
+        border: 2px solid #C016A8;
+    }
+
+    :active {
+        border: none;
+    }
 `
 
 const HomePage = () => {
@@ -36,16 +46,15 @@ const HomePage = () => {
   };
 
 return (
-    <HomeContainer>
+    <PageContainer>
         <Header />
         <BodyContainer>
             <WelcomeText>Bem-vindo(a) ao programa de viagens espaciais LabeX!</WelcomeText>
-            {/* <button onClick={goToApplicationFormPage}>Inscrição</button> */}
-            <ButtonApplication onClick={goToApplicationFormPage}>
+            <Button onClick={goToApplicationFormPage}>
                 Inscrição
-            </ButtonApplication>
+            </Button>
         </BodyContainer>
-    </HomeContainer>
+    </PageContainer>
   );
 }
 

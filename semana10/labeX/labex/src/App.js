@@ -3,9 +3,8 @@ import Router from './components/Router';
 import styled from "styled-components"
 
 const AppContainer = styled.div`
-  background-color: black;
   background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -19,11 +19,21 @@ const BodyContainer = styled.div`
     text-align: center;
 `
 
+const Title = styled.h3 `
+    color: white;
+`
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+`
+
 const Input = styled.input`
     display: flex;
     width: 200px;
     height: 30px;
     align-self: center;
+    margin: 5px;
 `
 
 const Button = styled.button `
@@ -32,6 +42,12 @@ const Button = styled.button `
     align-self: center;
     justify-content: center;
     padding: 10px;
+    border-radius: 15px;
+    border: none;
+
+    :hover {
+        border: 2px solid #C016A8;
+    }
 `
 const baseUrl =
   "https://us-central1-labenu-apis.cloudfunctions.net/labeX/marana-caon";
@@ -73,10 +89,22 @@ return (
     <PageContainer>
       <Header />
       <BodyContainer>
-      <h1>Login</h1>
-      <Input value={email} onChange={onChangeEmail} placeholder="email" />
-      <Input value={password} onChange={onChangePassword} placeholder="senha" />
-      <Button onClick={handleLogin}>Login</Button>
+      <Title>Login</Title>
+      <Form>
+        <Input 
+          value={email} 
+          onChange={onChangeEmail} 
+          placeholder="email" 
+          type="email"
+        />
+        <Input 
+          value={password} 
+          onChange={onChangePassword} 
+          placeholder="senha"
+          type="password"
+        />
+      </Form>
+      <Button onClick={handleLogin}>Entrar</Button>
       </BodyContainer>
     </PageContainer>
   );

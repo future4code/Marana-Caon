@@ -25,13 +25,13 @@ const Router = () => {
           <Route exact path="/admin">
             <AdminPage />
           </Route>
-          <Route exact path="/viagens/criar">
+          <Route exact path="/admin/criar-viagens">
             <CreateTripPage />
           </Route>
-          <Route exact path="/viagens/lista">
+          <Route exact path="/admin/lista-viagens">
             <ListTripsPage />
           </Route>
-          <Route exact path="/viagens/detalhes">
+          <Route exact path="/admin/detalhes-viagens">
             <TripDetailsPage />
           </Route>
           <Route path="/">
