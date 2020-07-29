@@ -15,14 +15,26 @@ describe ('Adicionar post', () => {
     })
 })
 
-descbribe ('Curtir post e descurtir post', () => {
+describe ('Curtir post e descurtir post', () => {
     test('Curtir post após clicar no botão curtir, trocando botão para descurtir', () => {
-        const { getByText } = render(<App />)
+        const { getByText, getByPlaceholderText } = render(<App />)
+
+        const input = getByPlaceholderText('Novo post')
+        
+        fireEvent.change(input, {target: {value: 'Teste adicionar post'}})
 
         const addButton = getByText(/Adicionar/)
-        const likeButton = getByText(/Curtir/)
 
         fireEvent.click(addButton)
+
+        const likeButton = getByText(/Curtir/)
+
         fireEvent.click(likeButton)
+
+        const unlikeButton = getByText(/Descurtir/)
+
+        fireEvent.click(unlikeButton)
+
+        expect(getByText(/Curtir/)).toBeInTheDocument()
     })
 })
