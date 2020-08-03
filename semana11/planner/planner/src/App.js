@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import Header from './components/Header'
-import Planner from './components/Planner'
+import Header from './components/Header';
+import Planner from './components/Planner';
+import axios from 'axios';
 
 const Body = styled.div `
   display: flex;
@@ -11,14 +12,26 @@ const Body = styled.div `
 
 function App() {
   const novaTarefa = {
-    texto: "comprar leite"
+    segunda: "",
+    terça: "",
+    quarta: "",
+    quinta: "",
+    sexta: "",
+    sábado: "",
+    domingo: ""
   }
 
   const [tarefas, setTarefas] = useState([novaTarefa]);
 
-  const adicionarTarefa = () => {
+  const getTasks = async () => {
+    const response = await axios.get('https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-turing-marana-caon')
 
-  };
+    setTarefas(response.data)
+  }
+
+  useEffect(() => {
+    getTasks()
+  }, []);
 
   return (
       <Body>
