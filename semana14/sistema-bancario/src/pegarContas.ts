@@ -1,9 +1,11 @@
-// import { readDatabase } from "./index";
+import { readDatabase } from "./index";
 
-// readDatabase().map((accounts: any) => {
-//     console.log(
-//     `${accounts.nome},
-//      ${accounts.cpf}
-//      ${accounts.saldo}
-//      ${accounts.}`
-// }
+readDatabase().map((contas: any) => {
+   console.log(`
+    Nome: ${contas.nome}
+    idade: ${contas.idade}
+    Nascimento: ${contas.dataNascimento}
+    Cpf: ${contas.cpf}
+    Saldo: ${contas.saldo}
+   `)
+})

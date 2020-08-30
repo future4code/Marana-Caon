@@ -8,43 +8,42 @@ type Usuario = {
     idade: number,
     nome: string,
     cpf: number,
-    dataNascimento: string
-  }
-
-type Saldo = {
-    valor: number,
-    date: moment.Moment,
-    descricao: string
+    dataNascimento: string,
+    saldo: number,
+    extrato: any
 }
 
-function criarConta(usuario: Usuario, saldo: Saldo): void {
-    const hoje = moment()
-    const dataNascimento = usuario.dataNascimento
+type Extrato = {
+    valor: number,
+    data: moment.Moment,
+    descrição: string
+}
+
+
+function criarConta(usuario: Usuario): void {
+    const hoje = moment("10/11/2018","DD/MM/YYYY")
+    const dataNascimento = moment(usuario.dataNascimento,"DD/MM/YYYY")
     const diffAnos = hoje.diff(dataNascimento, "years")
     if(diffAnos > 18) {
         const fileData: string = fs.readFileSync('./data.json').toString()
         const allClients = JSON.parse(fileData)
         allClients.push(usuario)
         fs.writeFileSync('./data.json', JSON.stringify(allClients, null, 2))
-        console.log("Conta cadastrada!")
+        console.log("Conta cadastrada com sucesso!")
         console.log(readDatabase())
     } 
     else{
-        console.log("Menor que 18 anos. Não é possível criar conta")
+        console.log("Não é possível criar conta, usuário menor de 18 anos!")
     }
 }
 
-// criarConta({
-//     nome: "Ana",
-//     cpf: 4676893450,
-//     idade: 23,
-//     dataNascimento: "05/04/1993",
-//     {valor: 100, 
-//      data: moment(),  
-//      descricao: "Saldo Atual"}
-//     })
+criarConta(
+    {
+    nome: "Carla", 
+    cpf: 1112423334, 
+    dataNascimento: "12/03/99", 
+    idade: 21,
+    saldo: 400,
+    extrato: []
+    })
 
-
-    
-
-  readDatabase().map()
