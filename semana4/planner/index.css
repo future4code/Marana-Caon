@@ -51,6 +51,7 @@ table {
     table-layout: fixed;
     width: 100%;
     background-color: honeydew;
+    margin-top: 10px;
 }
 
 th{
