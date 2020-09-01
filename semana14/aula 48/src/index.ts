@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 //Exercício 1
-//a)
+//a) Um constructor serve para inicializar um objeto criado a partir de uma classe.
 //b)
 
 class UserAccount {
@@ -24,8 +24,10 @@ class UserAccount {
 
 }
 
+const newAccount: UserAccount = new UserAccount('444-555-666-7', 'Aline', 45)
 
-//c)
+
+//c) Com métodos públicos, chamados de getters (para pegar o atributo) e setters (para alterar).
 
 //Exercício 2
 class Transaction {
@@ -42,46 +44,46 @@ class Transaction {
 
 
 //Exercício 3
-class Bank {
-  private accounts: UserAccount[];
-  private fileManager: JSONFileManager;
+// class Bank {
+//   private accounts: UserAccount[];
+//   private fileManager: JSONFileManager;
 
-  constructor(accounts: UserAccount[], fileManager: JSONFileManager) {
-    this.accounts = accounts;
-    this.fileManager = new JSONFileManager("data.json")
-  }
+//   constructor(accounts: UserAccount[], fileManager: JSONFileManager) {
+//     this.accounts = accounts;
+//     this.fileManager = new JSONFileManager("data.json")
+//   }
 
-}
+// }
 
 //Exercício 4
 
-class JSONFileManager {
+// class JSONFileManager {
 
-  private fileName: string
+//   private fileName: string
 
-  constructor(fileName: string) {
-      this.fileName = fileName
-  }
+//   constructor(fileName: string) {
+//       this.fileName = fileName
+//   }
 
-  public readDatabase(): Object {
-      try {
-          const fileData: string = fs.readFileSync(this.fileName).toString()
-          return JSON.parse(fileData)
-      } catch (error) {
-          console.log(`Erro ao ler a base de dados: ${error.message}`)
-          return []
-      }
-  }
+//   public readDatabase(): Object {
+//       try {
+//           const fileData: string = fs.readFileSync(this.fileName).toString()
+//           return JSON.parse(fileData)
+//       } catch (error) {
+//           console.log(`Erro ao ler a base de dados: ${error.message}`)
+//           return []
+//       }
+//   }
 
-  public writeToDatabase(data: any): void {
-      try {
-          const dataAsString: string = JSON.stringify(data, null, 3)
-          fs.writeFileSync(this.fileName, dataAsString)
-      } catch (error) {
-          console.log(`Erro ao escrever na base de dados: ${error.message}`)
-      }
-  }
-}
+//   public writeToDatabase(data: any): void {
+//       try {
+//           const dataAsString: string = JSON.stringify(data, null, 3)
+//           fs.writeFileSync(this.fileName, dataAsString)
+//       } catch (error) {
+//           console.log(`Erro ao escrever na base de dados: ${error.message}`)
+//       }
+//   }
+// }
 
 
 
