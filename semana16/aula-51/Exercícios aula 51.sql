@@ -1,7 +1,10 @@
 USE `turing-marana-caon`;
 
+SET SQL_SAFE_UPDATES = 0;
+
 ### Exercício 1
-### a) 
+### a) VARCHAR são strings; PRIMARY KEY possuem um valor único que será utilizado para identificar uma linha; NOT NULL não aceita valores nulos; DATE
+### aceita datas em formato string;
 ### b) SHOW DATABASES: mostra a database onde está trabalhando e SHOW TABLE mostra as tabelas criadas;
 ### c)
 
@@ -17,6 +20,7 @@ SHOW DATABASES;
 
 SHOW TABLES;
 
+DESCRIBE Actor;
 
 ### Exercício 2
 
@@ -215,11 +219,76 @@ VALUES(
     "Zulmira é uma mulher que vive uma vida simples e miserável em um subúrbio do Rio de Janeiro. Por todas as dificuldades que enfrenta, ela sonha ter um enterro luxuoso. ",
     "1965-07-27",
     9
-)
+);
 
 ### Exercício 6
+### a)
+
+UPDATE Actor
+SET 
+	name = "Moacyr Franco",
+	birth_date = "2020-02-10"
+WHERE id = "003";
+
+### b)
+
+UPDATE Actor
+SET name = "JULIANA PÃES"
+WHERE name = "Juliana Paes";
+
+UPDATE Actor
+SET name = "Juliana Paes"
+WHERE name = "JULIANA PÃES";
+
+### c)
+
+UPDATE Actor
+SET 
+	name = "Moacyr Franco",
+	birth_date = "2020-02-10",
+    salary = 600000,
+    gender = "male"
+WHERE id = "005";
+
 ### Exercício 7
+### a)
+
+DELETE FROM Actor WHERE name = "Fernanda Montenegro";
+
+### b) 
+
+DELETE FROM Actor
+WHERE
+	gender = "male" AND
+	salary > 1000000;
+
 ### Exercício 8
+### a) A query conta quantos atores de cada gênero existem, retornando 4 atores e 3 atrizes.
+
+SELECT COUNT(*), gender
+FROM Actor
+GROUP BY gender;
+
+### b)
+
+SELECT id, name FROM Actor
+ORDER BY name DESC;
+
+### c)
+
+SELECT * FROM Actor
+ORDER BY salary;
+
+### d)
+
+SELECT * FROM Actor
+ORDER BY salary DESC
+LIMIT 3;
+
+### e)
+
+SELECT AVG(salary), gender FROM Actor
+GROUP BY gender;
 
 
 
