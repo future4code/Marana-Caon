@@ -1,0 +1,10 @@
+[
+  {
+    "nome": "Carla",
+    "cpf": 1112423334,
+    "dataNascimento": "12/03/99",
+    "idade": 21,
+    "saldo": 400,
+    "extrato": []
+  }
+]
