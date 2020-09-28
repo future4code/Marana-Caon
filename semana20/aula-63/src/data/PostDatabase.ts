@@ -1,20 +1,19 @@
 import { BaseDatabase } from "./BaseDatabase";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 export class PostDatabase extends BaseDatabase {
   private static TABLE_NAME = "TestsPosts";
 
-  public async createPost(id: string, title: string, content: string): Promise<void>{
+  public async createPost(id: string, photo: string, description: string, createdAt: string, type: string): Promise<void>{
 
     try {
 
         await this.getConnection()
         .insert({
             id,
-            title,
-            content
+            photo,
+            description,
+            createdAt,
+            type
         })
         .into(PostDatabase.TABLE_NAME);
         
