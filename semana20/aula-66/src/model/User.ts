@@ -47,28 +47,29 @@ export class User{
         this.role = role;
     }
 
-   static stringToUserRole(input: string): UserRole{
+    static stringToUserRole(input: string): UserRole{
         switch (input) {
             case "NORMAL":
-              return UserRole.NORMAL;
+                return UserRole.NORMAL;
             case "ADMIN":
-              return UserRole.ADMIN;
+                return UserRole.ADMIN;
             default:
-              throw new Error("Invalid user role");
-          }
+                throw new Error("Invalid user role");
+        }
     }
 
     static toUserModel(user: any): User {
+        if(!user) {
+            throw new Error("User not found")
+        }
         return new User(user.id, user.name, user.email, user.password, User.stringToUserRole(user.role));
-      }
-
-
+    }
 }
 
 export interface UserInputDTO{
+    name: string;
     email: string;
     password: string;
-    name: string;
     role: string;
 }
 

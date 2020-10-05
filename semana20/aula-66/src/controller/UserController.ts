@@ -2,8 +2,20 @@ import { Request, Response } from "express";
 import { UserInputDTO, LoginInputDTO} from "../model/User";
 import { UserBusiness } from "../business/UserBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
+import { UserDatabase } from "../data/UserDatabase";
+import { IdGenerator } from "../services/IdGenerator";
+import { HashManager } from "../services/HashManager";
+import { Authenticator } from "../services/Authenticator";
 
 export class UserController {
+
+    private static userBusiness = new UserBusiness(
+        new UserDatabase(),
+        new IdGenerator(),
+        new HashManager(),
+        new Authenticator()
+    );
+    
     async signup(req: Request, res: Response) {
         try {
 
@@ -14,8 +26,7 @@ export class UserController {
                 role: req.body.role
             }
 
-            const userBusiness = new UserBusiness();
-            const token = await userBusiness.createUser(input);
+            const token = await UserController.userBusiness.createUser(input);
 
             res.status(200).send({ token });
 
@@ -27,19 +38,15 @@ export class UserController {
     }
 
     async login(req: Request, res: Response) {
-
         try {
-
             const loginData: LoginInputDTO = {
                 email: req.body.email,
                 password: req.body.password
             };
 
-            const userBusiness = new UserBusiness();
-            const token = await userBusiness.getUserByEmail(loginData);
+            const token = await UserController.userBusiness.login(loginData);
 
-            res.status(200).send({ token });
-
+            res.status(200).send({ message: "User logged sucessfully!", token });
         } catch (error) {
             res.status(400).send({ error: error.message });
         }

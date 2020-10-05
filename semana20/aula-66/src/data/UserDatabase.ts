@@ -3,25 +3,38 @@ import { User } from "../model/User";
 
 export class UserDatabase extends BaseDatabase {
 
-  private static TABLE_NAME = "";
+  protected tableName: string = "LAMA_USUÁRIOS";
+
+  private toModel(dbModel?: any): User | undefined {
+    return (
+      dbModel &&
+      new User(
+        dbModel.id,
+        dbModel.name,
+        dbModel.email,
+        dbModel.password,
+        dbModel.role
+      )
+    );
+  }
 
   public async createUser(
     id: string,
-    email: string,
     name: string,
+    email: string,
     password: string,
     role: string
   ): Promise<void> {
     try {
-      await this.getConnection()
+      await super.getConnection()
         .insert({
           id,
-          email,
           name,
+          email,
           password,
           role
         })
-        .into(UserDatabase.TABLE_NAME);
+        .into(this.tableName);
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);
     }
@@ -30,10 +43,9 @@ export class UserDatabase extends BaseDatabase {
   public async getUserByEmail(email: string): Promise<User> {
     const result = await this.getConnection()
       .select("*")
-      .from(UserDatabase.TABLE_NAME)
+      .from(this.tableName)
       .where({ email });
 
     return User.toUserModel(result[0]);
   }
-
 }
